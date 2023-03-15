@@ -8,6 +8,7 @@ namespace HighQualityTextEditor {
     public partial class Form1 : Form {
         public Form1() {
             InitializeComponent();
+            Customizing.DarkMode(this);
         }
 
         private void NewFile(object sender, EventArgs e) {
@@ -69,11 +70,11 @@ namespace HighQualityTextEditor {
 
         private void TextBoxFontChanged(object sender, EventArgs e) {
             LineNumbers.UpdateNumberLabel(this);
-            TextBoxVScroll(null, null);
+            TextBoxVScroll(sender, e);
         }
 
         private void TextBoxResized(object sender, EventArgs e) {
-            TextBoxVScroll(null, null);
+            TextBoxVScroll(sender, e);
         }
 
         private void TextBoxKeyUp(object sender, KeyEventArgs e) {
@@ -90,18 +91,6 @@ namespace HighQualityTextEditor {
 
         private void Minimize(object sender, EventArgs e) {
             WindowState = FormWindowState.Minimized;
-
-            string str = "class";
-            string pat = @"class";
-
-            TestRegex(str, pat);
-        }
-
-        private void TestRegex(string inp, string pattern) {
-            MatchCollection matches = Regex.Matches(inp, pattern);
-            foreach (Match match in matches) {
-                Console.WriteLine(match.Value);
-            }
         }
     }
 }

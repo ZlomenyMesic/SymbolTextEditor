@@ -21,7 +21,7 @@ namespace HighQualityTextEditor {
 
             lastChar = form1.textBoxMain.Text[lastIndex - 1];
             Dictionary<char, char> brackets = new Dictionary<char, char> {
-                {'{', '}'}, {'(', ')'}
+                {'{', '}'}, {'(', ')'}, { '\"', '\"' }, { '\'', '\'' }
             };
             foreach (char key in brackets.Keys)
                 if (lastChar == key)
